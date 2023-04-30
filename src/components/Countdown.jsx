@@ -3,7 +3,7 @@ import Timer from './Timer'
 import { BsFillPlayFill, BsPauseFill, BsStopFill } from 'react-icons/bs'
 
 
-const Countdown = () => {
+const Countdown = ({ person }) => {
 
     const [hours, setHours] = useState(0)
     const [minutes, setMinutes] = useState(0)
@@ -11,10 +11,10 @@ const Countdown = () => {
     const [isStart, setIsStarting] = useState(null)
     const [result, setResult] = useState({
         show: false,
-        message: 'happy'
+        message1: 'Person 1 wins',
+        message2: 'Person 2 wins'
     })
-    const [person1,setPerson1]=useState(false)
-    const [person2,setPerson2]=useState(false)
+
 
     //Functions
     function startTimer() {
@@ -85,10 +85,14 @@ const Countdown = () => {
 
 
     return (
-        <div style={{ display: "flex", margin: "2px", alignItems: "center", height: "100vh", width: "100wh", justifyContent: "center" }}>
+
+        <div style={{ display: "flex", margin: "10px", alignItems: "center", height: "100vh", width: "100wh", justifyContent: "center" }}>
+
             <div className='p1'>
-                
-                {result.show && <h1 className='title'>{result.message}</h1>}
+                {console.log(person)}
+                {person == "person1" && result.show && <h1 className='title'>{result.message1}</h1>}
+                {person == "person2" && result.show && <h1 className='title'>{result.message2}</h1>}
+
                 <Timer seconds={seconds} minutes={minutes} hours={hours} changeSeconds={changeSeconds} changeHours={changeHours} changeMinutes={changeMinutes} />
                 <br />
                 {!isStart && (
@@ -98,21 +102,9 @@ const Countdown = () => {
                     <button className='btn btn-warning btnlg' onClick={pauseTimer}><BsPauseFill /></button>
                 )}{" "}
                 <button className='btn btn-danger btnlg' onClick={stopTimer}><BsStopFill /></button>
-                <h1 style={{ color: "white" }}>1</h1>
+
             </div>
-            <div className='p2' style={{ padding: "50px" }}>
-         
-                <Timer seconds={seconds} minutes={minutes} hours={hours} changeSeconds={changeSeconds} changeHours={changeHours} changeMinutes={changeMinutes} />
-                <br />
-                {!isStart && (
-                    <button className='btn btn-accept btnlg' onClick={startTimer}><BsFillPlayFill /></button>
-                )}
-                {isStart && (
-                    <button className='btn btn-warning btnlg' onClick={pauseTimer}><BsPauseFill /></button>
-                )}{" "}
-                <button className='btn btn-danger btnlg' onClick={stopTimer}><BsStopFill /></button>
-                <h1 style={{ color: "white" }}>2</h1>
-            </div>
+
         </div>
     )
 }
