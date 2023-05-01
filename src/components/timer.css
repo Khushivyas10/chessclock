@@ -1,6 +1,6 @@
 .timer{
     margin-top: 30vh;
-    width: 400px;
+    width: 550px;
     margin-left: auto;
     margin-right: auto;
     background-color: #222;
@@ -10,20 +10,24 @@
     align-items: center;
     justify-content: center;
     box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.4);
-   padding: 1rem 0;
+    padding: 1rem 0;
+}
 
-}
 .person{
-    font-size: 50px;
+    font-size: 60px;
     padding-right: 2px;
+    
 }
+
 .stop-watch{
     font-size: 6rem;
     margin-right: 1rem;
 }
+
 label{
     margin-bottom: 0.5rem;
 }
+
 input{
     width: 100px;
     margin-right: 1rem;
