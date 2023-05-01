@@ -21,13 +21,9 @@ const Countdown = (props) => {
     //Functions
     function startTimer() {
         if (hours !== 0 || minutes !== 0 || seconds !== 0 ) {
-            setIsStarting(true)
-            
+            setIsStarting(true) 
             setResult({ ...result, show: false })
-        }else if(isPause){
-            setIsStarting(false)
         }
-
          else {
             window.alert("Add Time")
         }
@@ -36,10 +32,6 @@ const Countdown = (props) => {
     function pauseTimer() {
         setIsStarting(false)
         setIsPause(true)
-        if(isPause){
-            setStartSecond(true)
-        }
-        
     }
 
     function stopTimer() {
@@ -57,7 +49,7 @@ const Countdown = (props) => {
     useEffect(() => {
         let interval
        {!isPause && props.person == "person1" && startTimer() }
-       {startSecond && props.person == "person2" && startTimer()}
+       {startSecond  && props.person == "person2" && startTimer()}
         if (isStart) {
             interval = setInterval(() => {
                 if (seconds > 0) {
